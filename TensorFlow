@@ -1,0 +1,31 @@
+Tensor 张量 意味着数据
+Flow 流    意味着计算
+
+Tensorflow 依赖于一个高效的 C++ 后端来进行计算.与后端的这个连接叫做 session.一般而言,使用 TensorFlow 程序的流程是先创建一个图,然后在 session 中启动它.
+session
+计算图
+Variable 模型参数
+Softmax Regression
+TensorFlow 先用图描述一系列可交互的计算操作，然后全部一起在Python之外运行。
+
+TensorFlow的特点：
+ 使用图来表示计算任务
+ 在会话（Session）的上下文中执行图
+ 使用tensor表示数据
+ 通过变量（Variable）维护状态
+ 使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.
+ 
+ 一个 TensorFlow 图描述了计算的过程. 为了进行计算, 图必须在 会话 里被启动. 
+ 会话 将图的 op 分发到诸如 CPU 或 GPU 之类的 设备 上, 同时提供执行 op 的方法. 这些方法执行后, 将产生的 tensor 返回. 
+ 在 Python 语言中, 返回的 tensor 是 numpy ndarray 对象；
+ 在 C 和 C++ 语言中, 返回的 tensor 是tensorflow::Tensor 实例.
+x = tf.placeholder("float", [None, 784]) None表示这里的张量可以是任意长度tf
+tf.argmax():能给出某个tensor对象在某一维上的其数据的最大值所在的索引值。
+tf.truncated_normal(   #从截断的正态分布中输出随机值
+    shape,
+    mean=0.0,
+    stddev=1.0,
+    dtype=tf.float32,
+    seed=None,
+    name=None
+)
