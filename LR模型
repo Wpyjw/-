@@ -1,0 +1,27 @@
+## 参数详解
+sklearn.linear_model.LogisticRegression(penalty='l2', dual=False,
+         ‍tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, 
+         class_weight=None, random_state=None, solver='liblinear', 
+         max_iter=100, multi_class='ovr', verbose=0, warm_start=False, n_jobs=1)‍
+         
+penalty :正则化选择参数，可选L1 L2 
+正常L2就可以，如果希望选择特征使用L1
+penalty->影响solver
+- tol 残差的收敛条件 两步相差默认0.0001
+- c 正则化系数。 
+- solver 损失函数的优化方法
+L1 L2
+  - iblinear 使用了坐标轴下降法来迭代优化损失函数
+L2  
+  - lbfgs 拟牛顿法的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数
+  - newton-cg 也是牛顿法法的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数
+  - sag 即随机平均梯度下降，是梯度下降法的变种，是一种线性收敛算法，和普通梯度下降法的区别是每次迭代仅仅用一部分的样本来计
+    算梯度，适合于样本数据多的时候
+max_iter 算法收敛的最大迭代次数
+
+
+- 模型对象
+>coef_:返回各特征的系数,绝对值大小可以理解成特征重要性
+>intercept_:返回模型的截距
+>n_iter_:模型迭代次数
+    
